@@ -16,4 +16,13 @@ export class RecipeListComponent implements OnInit {
   ngOnInit(): void {
     this._recipeService.getAllRecipie().subscribe(recipies => this.recipies = recipies);
   }
+
+
+  delete(recipe: Recipe){
+    const index = this.recipies.indexOf(recipe);
+    console.log("index ", index);
+
+    this.recipies.splice(index, 1);
+
+  }
 }

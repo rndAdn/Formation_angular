@@ -1,0 +1,18 @@
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Nom de la recette" [(ngModel)]="recipe.name">
+  </mat-form-field>
+</div>
+
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="URL de l'image" [(ngModel)]="recipe.picture">
+  </mat-form-field>
+</div>
+
+<mat-form-field>
+  <textarea matInput placeholder="Description de la recette" [(ngModel)]="recipe.description"></textarea>
+</mat-form-field>
+
+
+<button mat-raised-button color="primary" (click)="createResource()">Save</button>

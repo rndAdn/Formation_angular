@@ -1,0 +1,18 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Pic url:
+    <input type="text" formControlName="url">
+  </label>
+
+  <label>
+    desctiption:
+    <input type="text" formControlName="description">
+  </label>
+
+  <button mat-raised-button color="primary" type="submit">update</button>
+</form>

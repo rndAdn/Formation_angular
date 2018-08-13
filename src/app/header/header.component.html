@@ -1,5 +1,8 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Excilys Cocktail</span>
+    <span appTestDirective>Excilys Cocktail</span>
+    <button mat-raised-button color="primary" routerLink="/recipe/add" >Ajouter une recette</button>
+
+    <button type="button" class="buttonB" appTestDirective >Click Me!</button>
   </mat-toolbar-row>
 </mat-toolbar>

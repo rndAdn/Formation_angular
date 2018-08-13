@@ -3,31 +3,39 @@
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{recipe.name}}</mat-card-title>
     <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    <button mat-icon-button (click)="deleteRecipe()">
+      <mat-icon>delete</mat-icon>
+    </button>
   </mat-card-header>
   <img mat-card-image [src]="recipe.picture">
   <mat-card-content>
     {{recipe.description}}
-    <div *ngIf="toggled">
+    <div *ngIf="toggled" class="e2e-expanded">
       <h2>Ingredients : </h2>
       <ul>
-        <li *ngFor="let ingredient of recipe.ingredients"> {{ingredient.name}} {{ingredient.quantity}}{{ingredient.unit}}</li>
+        <li *ngFor="let ingredient of recipe.ingredients"> {{ingredient.name}}
+          {{ingredient.quantity}}{{ingredient.unit}}
+        </li>
 
       </ul>
 
       <h2>Instructions : </h2>
       <ul>
-        <li *ngFor="let instruction of recipe.instructions"> {{instruction}}</li>
-        <!--<li *ngFor="let instruction of recipe.instructions | strToArray"> {{instruction}}</li>-->
+        <!--<li *ngFor="let instruction of recipe.instructions"> {{instruction}}</li>-->
+        <li *ngFor="let instruction of recipe.instructions | strToArray"> {{instruction}}</li>
 
       </ul>
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="toggle()" [ngPlural]="toggled">
+    <button mat-raised-button color="primary" (click)="toggle()" [ngPlural]="toggled" class="e2e-toggle">
       <ng-template ngPluralCase="=true">Collapse</ng-template>
       <ng-template ngPluralCase="=false">Expand</ng-template>
     </button>
 
     <button mat-raised-button color="primary" routerLink="/recipe/{{recipe.id}}" *ngIf="!overview">Detail</button>
+
+    <button mat-raised-button color="primary" routerLink="/recipe/update/{{recipe.id}}">Update</button>
+
   </mat-card-actions>
 </mat-card>
